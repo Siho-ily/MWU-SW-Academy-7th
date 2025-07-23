@@ -3,12 +3,17 @@ const data2 = [{text: "베이스 연습하기"}, {text: "턱걸이 하기"}, {te
 
 const $app = document.querySelector(".app");
 
+new TodoForm({
+    $target: $app,
+});
+
 new TodoList2({
     $target: $app,
     initialState: data1,
 });
 
-new TodoList2({
+/* new TodoList2({
     $target: $app,
     initialState: data2,
 });
+ */
