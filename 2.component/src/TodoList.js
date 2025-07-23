@@ -5,7 +5,7 @@
  * }
  */
 
-function TodoList(params) {
+function TodoList1(params) {
     const {$target, initialState} = params;
 
     const $todoList = document.createElement("div");
@@ -26,6 +26,23 @@ function TodoList(params) {
         $todoList.innerHTML = `
 		<ul>
 			${this.state.map((todo) => `<li>${todo.text}</li>`).join("")}
+		</ul>
+		`;
+    };
+
+    this.render();
+}
+
+function TodoList2({$target, initialState}) {
+    const $todoList = document.createElement("div");
+    $target.appendChild($todoList);
+
+    this.state = initialState;
+
+    this.render = () => {
+        $todoList.innerHTML = `
+		<ul>
+			${this.state.map(({text}) => `<li>${text}</li>`).join("")}
 		</ul>
 		`;
     };
