@@ -1,4 +1,9 @@
 function App({$target, initialState}) {
+    new Header({
+        $target,
+        text: "Simple Todo List",
+    });
+
     new TodoForm({
         $target,
         onSubmit: (text) => {
