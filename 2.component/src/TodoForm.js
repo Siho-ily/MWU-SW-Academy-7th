@@ -1,4 +1,4 @@
-function TodoForm({$target}) {
+function TodoForm({$target, onSubmit}) {
     const $form = document.createElement("form");
 
     $target.appendChild($form);
@@ -15,9 +15,15 @@ function TodoForm({$target}) {
             $form.addEventListener("submit", (event) => {
                 event.preventDefault();
 
-                const text = $form.querySelector("input[name=todo]").value;
-                console.log(text);
+                const $input = $form.querySelector("input[name=todo]");
+                const text = $input.value;
+
+                if (text.length > 0) {
+                    onSubmit(text);
+                    $input.value = "";
+                }
             });
+            isInit = true;
         }
     };
 

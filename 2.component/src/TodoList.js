@@ -5,39 +5,16 @@
  * }
  */
 
-function TodoList1(params) {
-    const {$target, initialState} = params;
-
+function TodoList({$target, initialState}) {
     const $todoList = document.createElement("div");
     $target.appendChild($todoList);
 
     this.state = initialState;
 
-    this.render = () => {
-        /* let html = "";
-
-        for (let i = 0; i < this.state.length; i++) {
-            html += `<li>${this.state[i].text}</li>`;
-        }
-
-        html = `<ul>${html}</ul>`;
-
-        $todoList.innerHTML = html; */
-        $todoList.innerHTML = `
-		<ul>
-			${this.state.map((todo) => `<li>${todo.text}</li>`).join("")}
-		</ul>
-		`;
+    this.setState = (nextState) => {
+        this.state = nextState;
+        this.render();
     };
-
-    this.render();
-}
-
-function TodoList2({$target, initialState}) {
-    const $todoList = document.createElement("div");
-    $target.appendChild($todoList);
-
-    this.state = initialState;
 
     this.render = () => {
         $todoList.innerHTML = `
